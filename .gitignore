@@ -46,3 +46,6 @@ abbrev_defs
 
 # ido
 ido.last
+
+# eshell
+eshell
