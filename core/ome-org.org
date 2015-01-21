@@ -272,7 +272,7 @@ If [[http://staff.science.uva.nl/~dominik/Tools/cdlatex/][CDLaTeX]] is available
 math]]" for details.
 
 #+NAME: org-cdlatex
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp :tangle no
 (when (el-get-package-is-installed 'cdlatex-mode)
   (add-hook 'org-mode-hook 'turn-on-org-cdlatex))
 #+END_SRC

@@ -43,3 +43,6 @@ doc
 # abbrev
 abbrev_defs
 /server/
+
+# ido
+ido.last

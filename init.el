@@ -78,4 +78,4 @@ FILENAME defaults to `buffer-file-name'."
 
 ;;; init.el ends here
 ;;; load personal config
-(load-file "after-init.el")
+(load-file "~/.emacs.d/after-init.el")
