@@ -1,12 +1,3 @@
-;; Shell settings
-(setq explicit-shell-file-name "c:/msys64/usr/bin/bash.exe")
-(setq shell-file-name "bash")
-(setq explicit-bash.exe-args '("--noediting" "--login" "-i"))
-(setenv "SHELL" shell-file-name)
-(add-hook 'comint-output-filter-functions 'comint-strip-ctrl-m)
-
-(add-to-list 'load-path "~/.emacs.d/local-elisp")
-
 ;;; init.el --- Where all the magic begins
 ;;
 ;; Part of the oh-my-emacs
