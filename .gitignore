@@ -49,3 +49,6 @@ ido.last
 
 # eshell
 eshell
+
+# local-elisp
+local-elisp
