@@ -49,3 +49,10 @@ ido.last
 
 # eshell
 eshell
+
+# after init
+after-init.el
+
+# vim
+*~
+*.swp
