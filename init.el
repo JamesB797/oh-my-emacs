@@ -79,6 +79,12 @@ FILENAME defaults to `buffer-file-name'."
 ;; load up the ome
 (org-babel-load-file (expand-file-name "ome.org" ome-dir))
 
-;;; init.el ends here
-;;; load personal config
+;;; load system-specific config
 (load-file "~/.emacs.d/after-init.el")
+
+;;;; Load system non-specific config
+(if (boundp 'emacs-config-dir)
+	(progn
+      (add-to-list 'load-path emacs-config-dir)
+      (load "config-main.el"))
+  (error "define emacs-config-dir in after-init.el"))
