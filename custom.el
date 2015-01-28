@@ -8,13 +8,13 @@
 (menu-bar-mode t)
 
 ;;; You email address
-(setq user-mail-address "xiaohanyu1988@gmail.com")
+(setq user-mail-address "drightkayorent@gmail.com")
 
 ;;; Calendar settings
 ;; you can use M-x sunrise-sunset to get the sun time
 (setq calendar-latitude 39.9)
 (setq calendar-longitude 116.3)
-(setq calendar-location-name "Beijing, China")
+(setq calendar-location-name "Winnipeg, Manitoba")
 
 ;;; Time related settings
 ;; show time in 24hours format
@@ -74,6 +74,8 @@ inversion of gas-comment-region"
  '(display-time-mode t)
  '(magit-use-overlays nil)
  '(menu-bar-mode nil)
+ '(mouse-wheel-progressive-speed nil)
+ '(mouse-wheel-scroll-amount (quote (4 ((shift) . 1) ((control)))))
  '(org-agenda-files (quote ("f:/Media/Dropbox/School/Automata/exam.org")))
  '(org-latex-classes
    (quote
