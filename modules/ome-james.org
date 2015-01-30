@@ -1,0 +1,16 @@
+
+* Neotree
+  :PROPERTIES:
+  :CUSTOM_ID: neotree
+  :END:
+
+  It's a NerdTree equivalent for Emacs.
+
+  #+NAME: neotree
+  #+begin_src emacs-lisp
+  (defun ome-neotree-setup ()
+    (eval-after-load 'neotree
+      (global-set-key [f2] 'neotree-toggle)))
+
+  (ome-install 'neotree)
+  #+end_src

@@ -494,6 +494,7 @@ you really need it.
 ;; (ome-load "modules/ome-experimental.org" "smooth-scrolling" "sublimity")
 (ome-load "modules/ome-haskell.org")
 (ome-load "modules/ome-sml.org")
+(ome-load "modules/ome-james.org")
 #+END_SRC
 
 ** Load User/System Specific Files
