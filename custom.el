@@ -76,6 +76,7 @@ inversion of gas-comment-region"
  '(menu-bar-mode nil)
  '(mouse-wheel-progressive-speed nil)
  '(mouse-wheel-scroll-amount (quote (4 ((shift) . 1) ((control)))))
+ '(neo-window-width 30)
  '(org-agenda-files (quote ("f:/Media/Dropbox/School/Automata/exam.org")))
  '(org-latex-classes
    (quote
