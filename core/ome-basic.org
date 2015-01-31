@@ -320,8 +320,17 @@ extension for GNU Emacs 24.
 #+BEGIN_SRC emacs-lisp
 (defun ome-flycheck-setup ()
   (eval-after-load 'flycheck
-    '(setq flycheck-checkers (delq 'emacs-lisp-checkdoc flycheck-checkers)))
+    '(progn
+       (setq flycheck-checkers (delq 'emacs-lisp-checkdoc
+                                     flycheck-checkers))
+
+       (define-key flycheck-mode-map "\C-c!k" 'kill-flycheck)))
+
   (add-hook 'prog-mode-hook 'flycheck-mode))
+
+(defun kill-flycheck ()
+  (interactive)
+  (delete-process "flycheck"))
 
 (ome-install 'flycheck)
 #+END_SRC
