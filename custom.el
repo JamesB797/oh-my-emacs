@@ -72,10 +72,12 @@ inversion of gas-comment-region"
    (quote
     ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
  '(display-time-mode t)
+ '(evil-want-C-u-scroll t)
  '(magit-use-overlays nil)
  '(menu-bar-mode nil)
  '(mouse-wheel-progressive-speed nil)
  '(mouse-wheel-scroll-amount (quote (4 ((shift) . 1) ((control)))))
+ '(neo-window-width 30)
  '(org-agenda-files (quote ("f:/Media/Dropbox/School/Automata/exam.org")))
  '(org-latex-classes
    (quote
