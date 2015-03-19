@@ -1,3 +1,104 @@
+#+title: Additional (Unsorted?) Configuration
+#+author: James Brown
+
+* Helper Functions
+
+  #+begin_src emacs-lisp
+  (defun find-any-function ()
+    (interactive)
+    (if (derived-mode-p 'lisp-mode)
+        (call-interactively 'slime-edit-definition-other-window)
+      (find-function-at-point)))
+
+  (defun map-many-keys (map keylist)
+    (flet ((mapkey (pair)
+                   (define-key map
+                     (car pair)
+                     (cadr pair))))
+      (mapc 'mapkey keylist)))
+
+  (defun replace-bad-quotes ()
+    (interactive)
+    (flet ((replacer (from to)
+                     (save-excursion
+                       (setf (point) 0)
+                       (while (search-forward from nil t)
+                         (replace-match to nil t)))))
+      (replacer (string #o222) "'")
+      (replacer (string #o223) (string #X201C))
+      (replacer (string #o224) (string #X201D))))
+
+  (defmacro wrap-for-evil (fun)
+    `(lambda (n)
+       (interactive "p")
+       (dotimes (i n nil)
+         (,fun))))
+  #+end_src
+
+* Keybindings
+** Evil
+
+   #+begin_src emacs-lisp
+   (map-many-keys evil-normal-state-map
+                  `(("gs" ,(lambda () (interactive)
+                             (start-process "zsh" nil "mintty"
+                                            "-p" "1920,0" "-s" "76,55" "zsh")))
+                    ("zi" make-image-link)
+                    ("zj" ,(wrap-for-evil outline-next-heading))
+                    ("zk" ,(wrap-for-evil outline-previous-heading))
+                    ("za" outline-cycle)
+                    ("zo" ,(lambda () (interactive) (show-entry) (show-children)))
+                    ("zc" hide-subtree)
+                    ("zu" outline-up-heading)
+                    ("zR" show-all)
+                    ("zm" wolfram-query-latex)
+                    ("zp" replace-regexp)))
+
+   (map-many-keys evil-visual-state-map
+                  `(("\C-o" open-rectangle)))
+
+   (evil-leader/set-key
+     "i" 'imenu
+     "x" 'er/expand-region
+     "h" 'hide-sublevels
+     "f" 'find-any-function
+     "v" 'find-variable-at-point)
+
+   (setq expand-region-contract-fast-key "z")
+   #+end_src
+
+** Otherwise
+
+   #+begin_src emacs-lisp
+   (global-set-key "\C-x\C-o" 'other-window)
+   (global-set-key "\C-cf" 'find-function-at-point)
+   (global-set-key "\C-xrT" 'string-insert-rectangle)
+   #+end_src
+
+* Auto-Save Settings
+
+  I don't like forgetting to save things, and I don't care to use
+  backup files, so I'd rather just save all the time.
+
+  I need to make it so that this only happens after I stop typing
+  for a while though.
+
+  #+name: intellij-style auto-save
+  #+begin_src emacs-lisp
+  (setq auto-save-interval 1
+        auto-save-timeout  1)
+
+  (defun full-auto-save ()
+    (interactive)
+    (save-excursion
+      (dolist (buf (buffer-list))
+        (set-buffer buf)
+        (if (and (buffer-file-name) (buffer-modified-p))
+            (basic-save-buffer)))))
+
+  (add-hook 'auto-save-hook 'full-auto-save)
+  #+end_src
+
 
 * Neotree
   :PROPERTIES:
