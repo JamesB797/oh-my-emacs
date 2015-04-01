@@ -1,7 +1,7 @@
 #+TITLE: Oh My Emacs Org
 #+OPTIONS: toc:nil num:nil ^:nil
 
-This is part of the [[https://github.com/xiaohanyu/oh-my-emacs][oh-my-emacs]].
+This is part of [[https://github.com/xiaohanyu/oh-my-emacs][oh-my-emacs]].
 
 This file contains configuration for the eminently useful [[http://orgmode.org/][Org Mode]].
 
@@ -20,7 +20,7 @@ which is also *implemented using* Org-mode and [[http://git-scm.com/][git]].
 
 #+NAME: org-el-get-packages
 #+CAPTION: El-get packages for ome-org module
-|            | Status      | Description                               |
+| Package    | Status      | Description                               |
 |------------+-------------+-------------------------------------------|
 | [[http://orgmode.org/][org-mode]]   | Required    | One of the killer Apps on Emacs platform. |
 | [[http://www.emacswiki.org/emacs/Htmlize][htmlize]].el | Recommended | Export an buffer to html format.          |

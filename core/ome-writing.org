@@ -1,7 +1,7 @@
 #+TITLE: Oh My Emacs Writing
 #+OPTIONS: toc:nil num:nil ^:nil
 
-This is part of the [[https://github.com/xiaohanyu/oh-my-emacs][oh-my-emacs]].
+This is part of [[https://github.com/xiaohanyu/oh-my-emacs][oh-my-emacs]].
 
 This file contains some packages for document writing.
 
@@ -12,7 +12,7 @@ This file contains some packages for document writing.
 
 #+NAME: ome-writing-prerequisites
 #+CAPTION: Prerequisites for ome-writing module
-|          | Windows | Ubuntu/Debian/Mint | ArchLinux | Fedora | Mac OS X | Mandatory? |
+| Package  | Windows | Ubuntu/Debian/Mint | ArchLinux | Fedora | Mac OS X | Mandatory? |
 |----------+---------+--------------------+-----------+--------+----------+------------|
 | [[http://daringfireball.net/projects/markdown/][markdown]] |         | markdown           |           |        |          | No         |
 
@@ -23,7 +23,7 @@ This file contains some packages for document writing.
 
 #+NAME: writing-el-get-packages
 #+CAPTION: El-get packages for ome-writing module
-|               | Status   | Description                                          |
+| Package       | Status   | Description                                          |
 |---------------+----------+------------------------------------------------------|
 | [[http://jblevins.org/projects/markdown-mode/][markdown-mode]] | Required | Markdown is so popular that this package is required |
 
