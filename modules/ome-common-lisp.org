@@ -1,7 +1,7 @@
 #+TITLE: Oh My Emacs Common Lisp
 #+OPTIONS: toc:2 num:nil ^:nil
 
-This is part of the [[https://github.com/xiaohanyu/oh-my-emacs][oh-my-emacs]].
+This is part of [[https://github.com/xiaohanyu/oh-my-emacs][oh-my-emacs]].
 
 This file contains some settings for [[* Common Lisp][Common Lisp]].
 
@@ -12,7 +12,7 @@ This file contains some settings for [[* Common Lisp][Common Lisp]].
 
 #+NAME: common-lisp-prerequisites
 #+CAPTION: Prerequisites for ome-common-lisp module
-|            | Windows | Ubuntu/Debian/Mint | ArchLinux | Fedora | Mac OS X | Mandatory? |
+| Package    | Windows | Ubuntu/Debian/Mint | ArchLinux | Fedora | Mac OS X | Mandatory? |
 |------------+---------+--------------------+-----------+--------+----------+------------|
 | [[http://www.sbcl.org/][SBCL]]       |         | sbcl               |           |        |          | Yes        |
 | [[http://ccl.clozure.com/][Clozure CL]] |         | [web]              |           |        |          | No         |

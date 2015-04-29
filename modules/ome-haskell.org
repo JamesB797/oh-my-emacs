@@ -1,7 +1,7 @@
-#+TITLE: Oh My Emacs CC
+#+TITLE: Oh My Emacs Haskell
 #+OPTIONS: toc:2 num:nil ^:nil
 
-This is part of the [[https://github.com/xiaohanyu/oh-my-emacs][oh-my-emacs]].
+This is part of [[https://github.com/xiaohanyu/oh-my-emacs][oh-my-emacs]].
 
 * Prerequisites
   :PROPERTIES:
@@ -10,9 +10,9 @@ This is part of the [[https://github.com/xiaohanyu/oh-my-emacs][oh-my-emacs]].
 
 #+NAME: haskell-prerequisites
 #+CAPTION: Prerequisites for ome-haskell module
-|     | Windows | Ubuntu/Debian/Mint | ArchLinux | Fedora | Mac OS X | Mandatory? |
-|-----+---------+--------------------+-----------+--------+----------+------------|
-| [[http://www.haskell.org/ghc/][GHC]] |         | ghc                |           |        |          | Yes        |
+| Package | Windows | Ubuntu/Debian/Mint | ArchLinux | Fedora | Mac OS X | Mandatory? |
+|---------+---------+--------------------+-----------+--------+----------+------------|
+| [[http://www.haskell.org/ghc/][GHC]]     |         | ghc                |           |        |          | Yes        |
 
 * El-get packages
   :PROPERTIES:
@@ -21,10 +21,9 @@ This is part of the [[https://github.com/xiaohanyu/oh-my-emacs][oh-my-emacs]].
 
 #+NAME: haskell-el-get-packages
 #+CAPTION: El-get packages for ome-haskell module
-|              | Status   | Description                                       |
+| Package      | Status   | Description                                       |
 |--------------+----------+---------------------------------------------------|
 | [[https://github.com/haskell/haskell-mode/wiki][haskell-mode]] | Required | This is a package for developing haskell in Emacs |
-
 
 * About Haskell
   You can find all the necessary information about haskell in the official [[http://www.haskell.org][site]].
@@ -63,6 +62,8 @@ minor teaks according personal preferences.
    '(haskell-stylish-on-save t))
 
   (add-hook 'haskell-mode-hook 'haskell-hook)
+  (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
+  (add-hook 'haskell-mode-hook 'haskell-indent-mode)
   (add-hook 'haskell-cabal-mode-hook 'haskell-cabal-hook)
 
   ;; Haskell main editing mode key bindings.

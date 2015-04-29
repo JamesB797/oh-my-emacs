@@ -1,7 +1,7 @@
 #+TITLE: Oh My Emacs Basic
 #+OPTIONS: toc:nil num:nil ^:nil
 
-This is part of the [[https://github.com/xiaohanyu/oh-my-emacs][oh-my-emacs]].
+This is part of [[https://github.com/xiaohanyu/oh-my-emacs][oh-my-emacs]].
 
 * Prerequisites
   :PROPERTIES:
@@ -10,18 +10,18 @@ This is part of the [[https://github.com/xiaohanyu/oh-my-emacs][oh-my-emacs]].
 
 #+NAME: basic-prerequisites
 #+CAPTION: Prerequisites for ome-basic module
-|            | Windows | Ubuntu/Debian/Mint | ArchLinux | Fedora | Mac OS X | Mandatory? |
+| Package    | Windows | Ubuntu/Debian/Mint | ArchLinux | Fedora | Mac OS X | Mandatory? |
 |------------+---------+--------------------+-----------+--------+----------+------------|
 | [[http://aspell.net/][GNU Aspell]] |         | aspell, aspell-en  |           |        |          |            |
 
-* El-get Packages
+* El-get packages
   :PROPERTIES:
   :CUSTOM_ID: basic-el-get-packages
   :END:
 
 #+NAME: basic-el-get-packages
 #+CAPTION: el-get packages for ome-basic module
-|                      | Status      | Description                                                               |
+| Package              | Status      | Description                                                               |
 |----------------------+-------------+---------------------------------------------------------------------------|
 | saveplace            | Builtin     | Save cursor place in opened files.                                        |
 | recentf              | Builtin     | Maintains a recent opened file list.                                      |
@@ -30,6 +30,7 @@ This is part of the [[https://github.com/xiaohanyu/oh-my-emacs][oh-my-emacs]].
 | [[https://github.com/purcell/exec-path-from-shell][exec-path-from-shell]] | Required    | ensure environment variables inside Emacs the same as in the user's shell |
 | [[https://github.com/flycheck/flycheck][flycheck]]             | Recommended | aka "Flymake done right"                                                  |
 | [[https://github.com/editorconfig/editorconfig-emacs][editorconfig]]         | Recommended | [[http://editorconfig.org][EditorConfig]] plugin for emacs                                             |
+| [[https://github.com/zk-phi/indent-guide][indent-guide]]         | Recommended | Show vertical lines to guide indentation                                  |
 
 * Some Basic Settings
   :PROPERTIES:
@@ -184,6 +185,28 @@ then you must do something to make texinfo become emacs's good friend.
 #+BEGIN_SRC sh
 brew link texinfo --force
 #+END_SRC
+
+* File encoding
+
+By default, emacs will detect file encoding according to an encoding priority
+list when opening a file, you can get your file encoding information by =C-h
+C=, aka =(describe-coding-system)=. However, sometimes this encoding priority
+list may not be proper for you, in this case, you can change this encoding
+priority list by =(set-coding-system-priority &rest coding-systems)=.
+
+For example, if you are Chinese and often have to work with Windows text
+document, then =(set-coding-system-priority 'utf-8 'chinese-gb18030)= may be
+the right solution for you to avoid garbled text. This statement tells emacs
+first try to open a chinese text file with utf-8 encoding, if failed, then try
+to open again with [[http://en.wikipedia.org/wiki/GB_18030][gb18030]] encoding. This will works for most Chinese users.
+
+If you want to change the file encoding temporarily when opening a file,
+=M-x revert-buffer-with-coding-system=.
+
+Text encoding is a complex topic, check emacs [[https://www.gnu.org/software/emacs/manual/html_node/emacs/International.html][manual]] for internal details.
+
+Check https://github.com/xiaohanyu/oh-my-emacs/issues/132 for detailed
+discussion.
 
 * Auto-fill Mode
   :PROPERTIES:
@@ -364,6 +387,27 @@ You need to install =editorconfig= before you use the emacs package, check
 
 (ome-install 'editorconfig)
 #+END_SRC
+
+* Indent-guide
+  :PROPERTIES:
+  :CUSTOM_ID: indent-guide
+  :END:
+
+Often we work with indented code, and it's better for our friend, the Emacs
+editor, to provide some indentation guide for us. Most of the builtin
+indentation features or third-party packages provide static indentation guide,
+which may be not good in some cases. Fortunately, a smart guy write a dynamic
+[[https://github.com/zk-phi/indent-guide][indent-guide]] package for us. It's amazing.
+
+#+NAME: indent-guide
+#+BEGIN_SRC emacs-lisp
+(defun ome-indent-guide-setup ()
+  (require 'indent-guide))
+
+(ome-install 'indent-guide)
+#+END_SRC
+
+[[https://github.com/zk-phi/indent-guide][indent-guide]]
 
 * Todo
 ** Flycheck
