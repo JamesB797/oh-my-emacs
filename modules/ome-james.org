@@ -118,3 +118,26 @@
 
   (ome-install 'neotree)
   #+end_src
+* Insert-Guid
+
+  Sometimes, you just need a guid.
+
+  #+name: GuidGen for emacs
+  #+begin_src emacs-lisp
+  (defun insert-guid-at-point ()
+    (interactive)
+    (cl-flet* ((hex-digit () (insert (elt "0123456789ABCDEF"
+                                          (random 16))))
+               (n-hex-digits (n) (dotimes (i n) (hex-digit)))
+               (dash () (insert "-")))
+      (n-hex-digits 8)
+      (dash)
+      (n-hex-digits 4)
+      (dash)
+      (n-hex-digits 4)
+      (dash)
+      (n-hex-digits 4)
+      (dash)
+      (n-hex-digits 12)
+      )))
+  #+end_src
