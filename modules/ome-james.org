@@ -147,5 +147,10 @@
   (defun flycheck-c++11 ()
     (interactive)
     (setq flycheck-clang-language-standard "c++11")
-    (flycheck-select-checker 'c/c++-clang))
+    (flycheck-select-checker c/c++-clang))
+
+  (defun flycheck-select-checker-c++11 ()
+    (setq flycheck-clang-language-standard "c++11"))
+
+  (add-hook 'c++-mode-hook 'flycheck-select-checker-c++11)
   #+end_src
