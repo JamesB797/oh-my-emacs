@@ -147,6 +147,5 @@
   (defun flycheck-c++11 ()
     (interactive)
     (setq flycheck-clang-language-standard "c++11")
-    (flycheck-select-checker c/c++-clang))
+    (flycheck-select-checker 'c/c++-clang))
   #+end_src
-
