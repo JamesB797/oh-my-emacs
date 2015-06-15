@@ -142,16 +142,27 @@
       (n-hex-digits 12)
       ))
   #+end_src
-* Flycheck-C++-Helper
+* Flycheck-Helper
   #+begin_src emacs-lisp
   (defun flycheck-c++11 ()
     (interactive)
-    (setq flycheck-clang-language-standard "c++11")
-    (flycheck-select-checker c/c++-clang))
+    (setq flycheck-gcc-language-standard "gnu++11")
+    (flycheck-select-checker 'c/c++-gcc))
 
   (defun flycheck-select-checker-c++11 ()
-    (setq flycheck-clang-language-standard "c++11"))
+    (setq flycheck-gcc-language-standard "gnu++11")
+    (setq flycheck-clang-language-standard "gnu++11"))
 
   (add-hook 'c++-mode-hook 'flycheck-select-checker-c++11)
-  #+end_src
 
+  (defun flycheck-c99 ()
+    (interactive)
+    (setq flycheck-gcc-language-standard "gnu99")
+    (flycheck-select-checker 'c/c++-gcc))
+
+  (defun flycheck-select-checker-c99 ()
+    (setq flycheck-gcc-language-standard "gnu99")
+    (flycheck-select-checker 'c/c++-gcc))
+
+  (add-hook 'c-mode-hook 'flycheck-select-checker-c99)
+  #+end_src
