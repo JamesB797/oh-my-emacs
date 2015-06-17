@@ -36,6 +36,11 @@
   #+end_src
 
 * Keybindings
+** Translations
+   #+begin_src emacs-lisp
+   (keyboard-translate ?\C-h ?\C-?)
+   #+end_src
+
 ** Evil
 
    #+begin_src emacs-lisp
@@ -53,16 +58,6 @@
                     ("zR" show-all)
                     ("zm" wolfram-query-latex)
                     ("zp" replace-regexp)))
-
-
-   ;; Windmove
-   (map-many-keys evil-normal-state-map
-                  `(
-                    ("C-h" windmove-left)
-                    ("C-j" windmove-down)
-                    ("C-k" windmove-up)
-                    ("C-l" windmove-right)
-                    ))
 
    (map-many-keys evil-insert-state-map
                   `(

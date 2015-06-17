@@ -91,9 +91,7 @@ inversion of gas-comment-region"
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(column-number-mode t)
- '(custom-safe-themes
-   (quote
-    ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
+ '(custom-safe-themes (quote ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
  '(display-time-mode t)
  '(evil-want-C-u-scroll t)
  '(magit-use-overlays nil)
@@ -101,10 +99,8 @@ inversion of gas-comment-region"
  '(mouse-wheel-progressive-speed nil)
  '(mouse-wheel-scroll-amount (quote (4 ((shift) . 1) ((control)))))
  '(neo-window-width 30)
- '(org-agenda-files (quote ("f:/Media/Dropbox/School/Automata/exam.org")))
- '(org-latex-classes
-   (quote
-    (("assignment" "\\documentclass[12pt]{article}
+ '(org-agenda-files (quote ("~/.emacs.d/modules/ome-james.org" "f:/Media/Dropbox/School/Automata/exam.org")))
+ '(org-latex-classes (quote (("assignment" "\\documentclass[12pt]{article}
 \\usepackage[margin=1.5in]{geometry}
 \\usepackage[parfill]{parskip}
 \\usepackage{fancyhdr}
@@ -114,31 +110,7 @@ inversion of gas-comment-region"
 
 \\pagestyle{fancy}
 
-"
-      ("\\section{%s}" . "\\section*{%s}")
-      ("\\subsection{%s}" . "\\subsection*{%s}")
-      ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-      ("\\paragraph{%s}" . "\\paragraph*{%s}")
-      ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))
-     ("article" "\\documentclass[11pt]{article}"
-      ("\\section{%s}" . "\\section*{%s}")
-      ("\\subsection{%s}" . "\\subsection*{%s}")
-      ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-      ("\\paragraph{%s}" . "\\paragraph*{%s}")
-      ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))
-     ("report" "\\documentclass[11pt]{report}"
-      ("\\part{%s}" . "\\part*{%s}")
-      ("\\chapter{%s}" . "\\chapter*{%s}")
-      ("\\section{%s}" . "\\section*{%s}")
-      ("\\subsection{%s}" . "\\subsection*{%s}")
-      ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))
-     ("book" "\\documentclass[11pt]{book}"
-      ("\\part{%s}" . "\\part*{%s}")
-      ("\\chapter{%s}" . "\\chapter*{%s}")
-      ("\\section{%s}" . "\\section*{%s}")
-      ("\\subsection{%s}" . "\\subsection*{%s}")
-      ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))
-     ("beamer" "\\documentclass{beamer}" org-beamer-sectioning))))
+" ("\\section{%s}" . "\\section*{%s}") ("\\subsection{%s}" . "\\subsection*{%s}") ("\\subsubsection{%s}" . "\\subsubsection*{%s}") ("\\paragraph{%s}" . "\\paragraph*{%s}") ("\\subparagraph{%s}" . "\\subparagraph*{%s}")) ("article" "\\documentclass[11pt]{article}" ("\\section{%s}" . "\\section*{%s}") ("\\subsection{%s}" . "\\subsection*{%s}") ("\\subsubsection{%s}" . "\\subsubsection*{%s}") ("\\paragraph{%s}" . "\\paragraph*{%s}") ("\\subparagraph{%s}" . "\\subparagraph*{%s}")) ("report" "\\documentclass[11pt]{report}" ("\\part{%s}" . "\\part*{%s}") ("\\chapter{%s}" . "\\chapter*{%s}") ("\\section{%s}" . "\\section*{%s}") ("\\subsection{%s}" . "\\subsection*{%s}") ("\\subsubsection{%s}" . "\\subsubsection*{%s}")) ("book" "\\documentclass[11pt]{book}" ("\\part{%s}" . "\\part*{%s}") ("\\chapter{%s}" . "\\chapter*{%s}") ("\\section{%s}" . "\\section*{%s}") ("\\subsection{%s}" . "\\subsection*{%s}") ("\\subsubsection{%s}" . "\\subsubsection*{%s}")) ("beamer" "\\documentclass{beamer}" org-beamer-sectioning))))
  '(org-latex-default-class "assignment")
  '(show-paren-mode t)
  '(tool-bar-mode nil))
@@ -147,5 +119,5 @@ inversion of gas-comment-region"
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(smerge-refined-added ((t (:inherit smerge-refined-change :background "#114411"))))
- '(smerge-refined-removed ((t (:inherit smerge-refined-change :background "#441111")))))
+ '(smerge-refined-added ((t (:inherit smerge-refined-change :background "#114411"))) t)
+ '(smerge-refined-removed ((t (:inherit smerge-refined-change :background "#441111"))) t))
