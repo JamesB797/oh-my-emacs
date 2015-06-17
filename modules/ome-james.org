@@ -13,7 +13,7 @@
   (defun map-many-keys (map keylist)
     (flet ((mapkey (pair)
                    (define-key map
-                     (car pair)
+                     (kbd (car pair))
                      (cadr pair))))
       (mapc 'mapkey keylist)))
 
@@ -54,8 +54,28 @@
                     ("zm" wolfram-query-latex)
                     ("zp" replace-regexp)))
 
+
+   ;; Windmove
+   (map-many-keys evil-normal-state-map
+                  `(
+                    ("C-h" windmove-left)
+                    ("C-j" windmove-down)
+                    ("C-k" windmove-up)
+                    ("C-l" windmove-right)
+                    ))
+
+   (map-many-keys evil-insert-state-map
+                  `(
+                    ("C-h" delete-backward-char)
+                    ("C-e" beginning-of-line)
+                    ("C-a" end-of-line)
+                    ))
+
    (map-many-keys evil-visual-state-map
-                  `(("\C-o" open-rectangle)))
+                  `(("C-o" open-rectangle)))
+
+   (map-many-keys minibuffer-local-map
+                  `(("C-h" delete-backward-char)))
 
    (evil-leader/set-key
      "i" 'imenu
@@ -72,6 +92,7 @@
    #+begin_src emacs-lisp
    ;; Truly Global Keys, will clobber minor modes
    (bind-keys* ("C-M-i" . indent-region)
+               ("C-M-h" . sp-backward-kill-word)
                ("C-x C-o" . other-window)
                ("C-x r T" . string-insert-rectangle)
                ("C-x C-s" . (lambda () (interactive)
@@ -142,27 +163,15 @@
       (n-hex-digits 12)
       ))
   #+end_src
-* Flycheck-Helper
+* Flycheck-C++-Helper
   #+begin_src emacs-lisp
   (defun flycheck-c++11 ()
     (interactive)
-    (setq flycheck-gcc-language-standard "gnu++11")
-    (flycheck-select-checker 'c/c++-gcc))
+    (setq flycheck-clang-language-standard "c++11")
+    (flycheck-select-checker c/c++-clang))
 
   (defun flycheck-select-checker-c++11 ()
-    (setq flycheck-gcc-language-standard "gnu++11")
-    (setq flycheck-clang-language-standard "gnu++11"))
+    (setq flycheck-clang-language-standard "c++11"))
 
   (add-hook 'c++-mode-hook 'flycheck-select-checker-c++11)
-
-  (defun flycheck-c99 ()
-    (interactive)
-    (setq flycheck-gcc-language-standard "gnu99")
-    (flycheck-select-checker 'c/c++-gcc))
-
-  (defun flycheck-select-checker-c99 ()
-    (setq flycheck-gcc-language-standard "gnu99")
-    (flycheck-select-checker 'c/c++-gcc))
-
-  (add-hook 'c-mode-hook 'flycheck-select-checker-c99)
   #+end_src
