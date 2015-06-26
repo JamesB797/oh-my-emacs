@@ -93,6 +93,8 @@
                ("C-x C-s" . (lambda () (interactive)
                               (delete-trailing-whitespace)
                               (save-buffer))))
+
+   (define-key yas-minor-mode-map (kbd "C-,") 'yas-expand)
    #+end_src
 
 * Auto-Save Settings
