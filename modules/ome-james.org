@@ -82,12 +82,22 @@
    (setq expand-region-contract-fast-key "z")
    #+end_src
 
+** Helm
+   #+begin_src emacs-lisp
+   (bind-keys :map helm-map
+              ("<tab>" . helm-execute-persistent-action))
+
+   (bind-keys :map helm-read-file-map
+              ("<tab>" . helm-execute-persistent-action))
+   #+end_src
+
 ** Otherwise
 
    #+begin_src emacs-lisp
    ;; Truly Global Keys, will clobber minor modes
    (bind-keys* ("C-M-i" . indent-region)
                ("C-M-h" . sp-backward-kill-word)
+               ("M-x" . helm-M-x)
                ("C-x C-o" . other-window)
                ("C-x r T" . string-insert-rectangle)
                ("C-x C-s" . (lambda () (interactive)
